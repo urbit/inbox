@@ -1,7 +1,10 @@
 import "/lib/object-extensions";
+
+import React from 'react';
+import ReactDOM from 'react-dom';
+import { Root } from '/components/root';
 import { api } from '/api';
 import { warehouse } from '/warehouse';
-import { router } from '/router';
 import { operator } from "/operator";
 import * as util from '/lib/util';
 import _ from 'lodash';
@@ -16,15 +19,13 @@ console.log('app running');
   host    :    zod
 */
 
-fetch('/~/auth.json',{credentials: "same-origin"}).then((res) => {
-  return res.json();
-})
-.then((authTokens) => {
-  api.setAuthTokens(authTokens);
-
-  router.start();
-  operator.start();
+api.setAuthTokens({
+  ship: window.ship
 });
+
+operator.start();
 
 window.util = util;
 window._ = _;
+
+ReactDOM.render(<Root />, document.querySelectorAll("#root")[0]);

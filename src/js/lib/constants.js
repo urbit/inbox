@@ -1,6 +1,6 @@
 export const INBOX_MESSAGE_COUNT = 30;
 
-export const LANDSCAPE_ROOT = "/~~/landscape";
+export const LANDSCAPE_ROOT = "/~landscape";
 
 export const STATUS_LOADING = "status loading";
 export const STATUS_READY = "status ready";

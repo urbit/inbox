@@ -38,8 +38,8 @@ export function getStationDetails(station) {
       ret.stationTitle = ret.cir;
       break;
     case "stream-chat":
-      ret.stationUrl = `/~~/landscape/stream?station=${station}`;
-      ret.stationDetailsUrl = `/~~/landscape/stream/details?station=${station}`;
+      ret.stationUrl = `/~landscape/stream?station=${station}`;
+      ret.stationDetailsUrl = `/~landscape/stream/details?station=${station}`;
       ret.stationTitle = ret.cir;
       break;
     case "stream-dm":
@@ -48,12 +48,12 @@ export function getStationDetails(station) {
         .filter((mem) => mem !== api.authTokens.ship)
         .map((mem) => `~${mem}`)
         .join(", ");;
-      ret.stationUrl = `/~~/landscape/stream?station=${station}`;
+      ret.stationUrl = `/~landscape/stream?station=${station}`;
       break;
     case "collection-index":
       ret.collId = circleParts[1];
 
-      ret.stationUrl = `/~~/~${ret.host}/==/web/collections/${ret.collId}`;
+      ret.stationUrl = `/~landscape/collections/~${ret.host}/${ret.collId}`;
       ret.stationTitle = config && config.extConf ? config.extConf.name : ret.collId;
 
       if (config && config.extConf) {
@@ -68,9 +68,10 @@ export function getStationDetails(station) {
     case "collection-post":
       ret.collId = circleParts[1];
       ret.postId = circleParts[2];
+      ret.stationUrl = `/~landscape/collections/~${ret.host}/${ret.collId}`;
 
-      ret.parentCollectionUrl = `/~~/~${ret.host}/==/web/collections/${ret.collId}`;
-      ret.stationUrl = `/~~/~${ret.host}/==/web/collections/${ret.collId}/${ret.postId}`;
+      ret.parentCollectionUrl = `/~landscape/collections/~${ret.host}/${ret.collId}`;
+      ret.parentCollectionUrl = `/~landscape/collections/~${ret.host}/${ret.collId}/${ret.postId}`;
       ret.stationTitle = config && config.extConf ? config.extConf.name : ret.collId;
 
       let collCircle = `~${ret.host}/c-${ret.collId}`;

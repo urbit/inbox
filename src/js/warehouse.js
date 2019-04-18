@@ -5,8 +5,11 @@ import { ViewsReducer } from '/reducers/views';
 import { NamesReducer } from '/reducers/names';
 import { CirclesReducer } from '/reducers/circles';
 // import { PublicReducer } from '/reducers/public';
-import { router } from '/router';
 import { PAGE_STATUS_READY, PAGE_STATUS_PROCESSING, REPORT_PAGE_STATUS, REPORT_NAVIGATE } from '/lib/constants';
+import React from 'react';
+import ReactDOM from 'react-dom';
+import { Root } from '/components/root';
+
 
 const REPORT_KEYS = [
   'landscape.prize',
@@ -109,10 +112,10 @@ class UrbitWarehouse {
     return reports;
   }
 
-  storePollResponse(pollResponse) {
+  storePollResponse(data) {
     let newReports = [];
     let reportTypes = Object.keys(this.reports);
-    let json = pollResponse.data.json;
+    let json = data.data;
 
     reportTypes.forEach((type) => {
       let reportData = _.get(json, type, null);
@@ -131,7 +134,7 @@ class UrbitWarehouse {
         newReports.push({
           type: type,
           data: reportData,
-          from: pollResponse.from
+          from: data.from
         });
       }
     });
@@ -151,7 +154,7 @@ class UrbitWarehouse {
     console.log('full store = ', this.store);
 
     this.processPending(newReports);
-    router.renderRoot();
+    ReactDOM.render(<Root />, document.querySelectorAll("#root")[0]);
   }
 
   processPending(reports) {

@@ -43,7 +43,8 @@ export class Message extends Component {
     }]);
 
     this.props.pushCallback("circle.config.dif.source", (rep) => {
-      this.props.transitionTo(stationDetails.stationUrl);
+      console.log(stationDetails.stationUrl);
+      window.location.href = stationDetails.stationUrl;
     });
   }
 

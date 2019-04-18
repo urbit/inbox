@@ -9,14 +9,6 @@ export class PageStatus extends Component {
     this.pendingAction = this.pendingAction.bind(this);
   }
 
-  reconnectPolling() {
-    this.props.storeReports([{
-      type: REPORT_PAGE_STATUS,
-      data: PAGE_STATUS_RECONNECTING
-    }]);
-    this.props.runPoll();
-  }
-
   pendingAction() {
     if (this.props.transition === PAGE_STATUS_DISCONNECTED) {
       this.reconnectPolling();

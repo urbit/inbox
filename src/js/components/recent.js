@@ -110,7 +110,7 @@ export class InboxRecentPage extends Component {
           <div className="row">
             <div className="flex-col-2"></div>
             <div className="flex-col-x">
-              <Message details={messageDetails} api={this.props.api} storeReports={this.props.storeReports} pushCallback={this.props.pushCallback} transitionTo={this.props.transitionTo}></Message>
+              <Message details={messageDetails} api={this.props.api} storeReports={this.props.storeReports} pushCallback={this.props.pushCallback}></Message>
             </div>
             <div className="flex-col-3"></div>
           </div>
@@ -266,9 +266,8 @@ export class InboxRecentPage extends Component {
     const invites = this.squashedInvites();
     const inviteElems = this.buildInvites(invites);
 
-
     return (
-      <React.Fragment>
+      <div className="inbox-page container">
         {invites.length > 0 &&
           <div className="row mt-3">
             <div className="flex-offset-2 flex-col-x">
@@ -278,7 +277,7 @@ export class InboxRecentPage extends Component {
         }
         {inviteElems}
         {sectionElems}
-      </React.Fragment>
+      </div>
     )
   }
 }

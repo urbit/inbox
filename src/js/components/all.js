@@ -32,7 +32,7 @@ export class InboxAllPage extends Component {
 
       return (
         <div key={stationDetails.station} className="mt-3 row align-center">
-          <div className="text-mono flex-col-6 flex-offset-2">
+          <div className="text-mono flex-col-3 flex-offset-2">
             {stationDetails.type !== "stream-dm" &&
               <React.Fragment>
                 <a className="text-host-breadcrumb" href={stationDetails.hostProfileUrl}>
@@ -96,6 +96,10 @@ export class InboxAllPage extends Component {
       );
     });
 
-    return sectionElems;
+    return (
+      <div className="inbox-page container">
+        { sectionElems }
+      </div>
+    );
   }
 }

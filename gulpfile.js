@@ -46,7 +46,8 @@ gulp.task('js-imports', function(cb) {
       plugins: [
         commonjs({
           namedExports: {
-            'node_modules/react/index.js': [ 'Component' ]
+            'node_modules/react/index.js': [ 'Component' ],
+            'node_modules/react-is/index.js': [ 'isValidElementType' ],
           }
         }),
         replace({
