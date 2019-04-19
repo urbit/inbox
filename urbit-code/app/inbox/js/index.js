@@ -53370,7 +53370,7 @@ lyrtesmudnytbyrsenwegfyrmurtelreptegpecnelnevfes\
 	    }, {
 	      name: "profile",
 	      action: () => {
-	        window.location.href = '/~profile';
+	        window.location.href = `/~landscape/profile/~${window.ship}`;
 	      },
 	      displayText: "profile",
 	      helpText: "Go to your profile. Settings and log out are also here",

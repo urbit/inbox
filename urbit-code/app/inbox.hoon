@@ -1,5 +1,4 @@
 /+  *server, collections
-
 /=  index
   /^  octs
   /;  as-octs:mimes:html
@@ -65,12 +64,6 @@
     :_  this
     [ost.bol %http-response not-found:app]~
   ::
-  ::  inbox page
-  ::
-      [%'~inbox' ~]
-    :_  this
-    [ost.bol %http-response (html-response:app index)]~
-  ::
   ::  styling
   ::
       [%'~inbox' %css %index ~]
@@ -82,6 +75,12 @@
       [%'~inbox' %js %index ~]
     :_  this
     [ost.bol %http-response (js-response:app script)]~
+  ::
+  ::  inbox page
+  ::
+     [%'~inbox' *]
+    :_  this
+    [ost.bol %http-response (html-response:app index)]~
   ==
 ::
 --
