@@ -51818,11 +51818,11 @@ lyrtesmudnytbyrsenwegfyrmurtelreptegpecnelnevfes\
 	// shorten comet names
 	function prettyShip(ship) {
 	  const sp = ship.split('-');
-	  return [sp.length == 9 ? `${sp[0]}_${sp[8]}`: ship, ship[0] === '~' ? `/~landscape/profile/${ship}` : `/~landscape/profile/~${ship}`];
+	  return [sp.length == 9 ? `${sp[0]}_${sp[8]}`: ship, ship[0] === '~' ? `/~profile/${ship}` : `/~profile/~${ship}`];
 	}
 
 	function profileUrl(ship) {
-	  return `/~landscape/profile/~${ship}`;
+	  return `/~profile/~${ship}`;
 	}
 
 	function isDMStation(station) {
@@ -53370,7 +53370,7 @@ lyrtesmudnytbyrsenwegfyrmurtelreptegpecnelnevfes\
 	    }, {
 	      name: "profile",
 	      action: () => {
-	        window.location.href = `/~landscape/profile/~${window.ship}`;
+	        window.location.href = `/~profile/~${window.ship}`;
 	      },
 	      displayText: "profile",
 	      helpText: "Go to your profile. Settings and log out are also here",
